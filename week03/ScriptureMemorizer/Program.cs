@@ -1,9 +1,15 @@
 using System;
+using System.Runtime.CompilerServices;
 
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello World! This is the ScriptureMemorizer Project.");
+        Scripture.IsCompletelyHidden() = false;
+
+        while (Scripture.IsCompletelyHidden() != true)
+        {
+
+        }
     }
 }
