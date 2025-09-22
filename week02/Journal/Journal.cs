@@ -27,24 +27,25 @@ public class Journal
             {
                 outputFile.WriteLine($"Date: {entry._date} Prompt: {entry._promptText} Entry: {entry._entryText}");
             }
-            Console.WriteLine($"Saving to: {Path.GetFullPath(file)}");
         }
     }
 
     public void LoadFromFile(string file)
     {
+        _entries.Clear();
+        
         string[] lines = System.IO.File.ReadAllLines(file);
 
         foreach (string line in lines)
         {
-            string[] parts = line.Split(new[] { "date: ", " Prompt: ", " Entry: " }, StringSplitOptions.None);
+            string[] parts = line.Split(new[] { "Date: ", " Prompt: ", " Entry: " }, StringSplitOptions.None);
             if (parts.Length == 4)
             {
                 string date = parts[1];
                 string prompt = parts[2];
                 string entryText = parts[3];
 
-                _entries.Add(new Entry(date, prompt, entryText));
+                _entries.Add(new Entry(prompt, entryText, date));
             }
         }          
 

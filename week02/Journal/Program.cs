@@ -56,6 +56,11 @@ class Program
                 string filename = Console.ReadLine();
                 journal.LoadFromFile(filename);
             }
+            
+            else if (choice == "5")
+            {
+                Console.WriteLine("Have a nice day!");
+            }
 
             else
             {
