@@ -26,7 +26,7 @@ public class Reference
         _verse = verse;
 
         _endVerse = -endVerse;
-        
+
     }
 
 
@@ -34,5 +34,10 @@ public class Reference
     {
         string text = $"{_book} {_chapter}: {_verse}{_endVerse}";
         return text;
+    }
+
+    public override string ToString()
+    {
+        return GetDisplayText();
     }
 }
