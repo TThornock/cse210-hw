@@ -1,9 +1,11 @@
+using System.Security.Cryptography.X509Certificates;
+
 public abstract class Goal
 {
     protected string _shortName;
     protected string _description;
     protected int _points;
-
+    protected string _checkbox;
 
     public Goal(string name, string description, int points)
     {
@@ -14,25 +16,27 @@ public abstract class Goal
         _points = points;
     }
 
-    public abstract void RecordEvent()
-    {
-        return  " ";
-    }
 
-    public abstract bool IsComplete()
-    {
-        return " ";
-    }
+    public abstract void RecordEvent();
+
+    public abstract bool IsComplete();
 
     public string GetDetailsString()
     {
-        return "";
+        if (IsComplete() == true)
+        {
+            _checkbox = "[X]";
+            return $"{_checkbox}: {_shortName} ({_description})";
+        }
+
+        else
+        {
+            _checkbox = "[ ]";
+            return $"{_checkbox}: {_shortName} ({_description})";
+        }
     }
 
-    public abstract string GetStringRepresntations()
-    {
-        return " ";
-    }
+    public abstract string GetStringRepresentation();
 }
 
 
